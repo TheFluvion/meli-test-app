@@ -14,12 +14,10 @@ const Items = () => {
             </p>
             <section className={styles.items}>
                 {
-                    items.map((item, index) => {
-                        if (index > 3) return
-                        return (
-                            <ItemSearch key={item.id} item={item} />
-                        )
-                    })
+                    items.map((item) => (
+                        <ItemSearch key={item.id} item={item} />
+                    )
+                    )
                 }
             </section>
         </main>

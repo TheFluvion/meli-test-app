@@ -1,11 +1,9 @@
-import { Description, Detail } from "@/services/types";
+import { Description, DetailItem } from "@/services/types";
 import { NextRequest, NextResponse } from "next/server";
 
 const API_BASE_URL = 'https://api.mercadolibre.com/items/'
 
-export async function GET(req: NextRequest, { params }: { params: { id: string } }): Promise<any> {
-    const id = params.id;
-
+export async function GET(req: NextRequest, { params: id }: { params: { id: string } }): Promise<any> {
     const url = `${API_BASE_URL}${id}`;
     const descriptionUrl = `${API_BASE_URL}${id}/description`;
 
@@ -13,7 +11,7 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
         fetch(url, { mode: 'cors' }),
         fetch(descriptionUrl, { mode: 'cors' })
     ]).then(async ([item, description]) => {
-        const itemData: Detail = await item.json();
+        const itemData: DetailItem = await item.json();
         const descriptionData: Description = await description.json();
 
         return NextResponse.json({

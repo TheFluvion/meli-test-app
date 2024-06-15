@@ -12,12 +12,12 @@ interface Props {
 const ItemSearch = ({ item }: Props) => {
     return (
         <Link href={`/items/${item.id}`} className={styles.container}>
-            <Image className={styles.image} src={item.thumbnail} alt={item.title} width={720} height={720} />
+            <Image className={styles.image} src={item.picture} alt={item.title} width={720} height={720} />
             <section className={styles.information}>
                 <p className={styles.price}>
-                    ${itemHelpers.formatPrice(item.price)}
+                    ${itemHelpers.formatPrice(item.price.amount)}
                     {
-                        item.shipping.free_shipping && (
+                        item.free_shipping && (
                             <Image
                                 src={truck}
                                 className={styles.icon}

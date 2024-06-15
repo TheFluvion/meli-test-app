@@ -3,33 +3,51 @@ export interface Author {
     lastname: string;
 }
 
-export interface Installments {
-    amount: number;
-    currency_id: string;
-    quantity: number;
-    rate: number;
-}
-
 interface Shipping {
     free_shipping: boolean
 }
 
-export interface Item {
+export interface Filters {
+    id: string;
+    name: string;
+    text: string;
+    values: {
+        id: string;
+        name: string;
+        path_from_root: {
+            id: string;
+            name: string;
+        }[]
+    }[]
+}
+
+export interface ItemRequest {
     id: string;
     title: string;
     price: number;
-    installments: Installments;
     picture: string;
     thumbnail: string
     condition: string;
     free_shipping: boolean;
     shipping: Shipping;
+    currency_id: string;
+    seller: {
+        id: number
+        nickname: string
+    }
 }
 
-export interface ResponseData {
-    author: Author;
-    categories: string[];
-    items: Item[];
+export interface Item {
+    id: string;
+    title: string;
+    price: {
+        currency: string;
+        amount: number;
+        decimals: number | null;
+    };
+    picture: string;
+    condition: string;
+    free_shipping: boolean;
 }
 
 export interface Description {
@@ -45,7 +63,7 @@ export interface Description {
     }
 }
 
-export interface Detail {
+export interface DetailItem {
     id: string;
     title: string;
     price: number;
@@ -54,4 +72,20 @@ export interface Detail {
     free_shipping: boolean;
     sold_quantity: number;
     description: string;
+    thumbnail: string
+}
+
+export interface ResponseData {
+    author: Author;
+    results: ItemRequest[];
+    filters: Filters[]
+}
+
+export interface FormatData {
+    author: {
+        name: string | null;
+        lastname: string | null;
+    }
+    categories: string[];
+    items: Item[]
 }
