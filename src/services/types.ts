@@ -14,6 +14,7 @@ export interface Item {
     title: string;
     price: Price;
     picture: string;
+    thumbnail: string
     condition: string;
     free_shipping: boolean;
 }
