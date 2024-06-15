@@ -3,20 +3,27 @@ export interface Author {
     lastname: string;
 }
 
-export interface Price {
-    currency: string;
+export interface Installments {
     amount: number;
-    decimals: number;
+    currency_id: string;
+    quantity: number;
+    rate: number;
+}
+
+interface Shipping {
+    free_shipping: boolean
 }
 
 export interface Item {
     id: string;
     title: string;
-    price: Price;
+    price: string;
+    installments: Installments;
     picture: string;
     thumbnail: string
     condition: string;
     free_shipping: boolean;
+    shipping: Shipping;
 }
 
 export interface ResponseData {
@@ -41,7 +48,7 @@ export interface Description {
 export interface Detail {
     id: string;
     title: string;
-    price: Price;
+    price: string;
     picture: string;
     condition: string;
     free_shipping: boolean;

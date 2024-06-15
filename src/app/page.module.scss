@@ -5,8 +5,15 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem 1rem;
+  padding: 16px 96px;
   //calc full height less header height
-  height: calc(100% - 3rem);
+  height: calc(100% - 48px);
   background-color: $backgroundColor;
+  overflow: hidden auto;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    padding: 16px 24px;
+  }
 }

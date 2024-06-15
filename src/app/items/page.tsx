@@ -1,21 +1,27 @@
 'use client';
 
 import SearchItem from "@/components/Item/SearchItem";
-import useItems from "@/hooks/useItems";
+import useSearchItems from "@/hooks/useSearchItems";
+import styles from "./page.module.scss";
 
 const Items = () => {
-    const { items } = useItems();
+    const { items } = useSearchItems();
 
     return (
-        <main>
-            {
-                items.map((item, index) => {
-                    if (index > 3) return
-                    return (
-                        <SearchItem key={item.id} item={item} />
-                    )
-                })
-            }
+        <main className={styles.container}>
+            <p className={styles.category}>
+                Electrónica, Audio y Video {'>'} iPod {'>'} Reproductores {'>'} iPod touch
+            </p>
+            <section className={styles.items}>
+                {
+                    items.map((item, index) => {
+                        if (index > 3) return
+                        return (
+                            <SearchItem key={item.id} item={item} />
+                        )
+                    })
+                }
+            </section>
         </main>
     );
 }

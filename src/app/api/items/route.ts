@@ -1,4 +1,4 @@
-import { ResponseData } from "@/services/types";
+import { Item, ResponseData } from "@/services/types";
 import { NextRequest, NextResponse } from "next/server";
 
 const API_BASE_URL = 'https://api.mercadolibre.com/sites/MLA/search?q=';
