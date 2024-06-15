@@ -1,19 +1,21 @@
 import { Item } from "@/services/types"
 import Image from "next/image"
-import styles from "./SearchItem.module.scss"
+import styles from "./ItemSearch.module.scss"
 import truck from "@/../public/icon-truck.svg";
+import { itemHelpers } from "@/helpers/items";
+import Link from "next/link";
 
 interface Props {
     item: Item
 }
 
-const SearchItem = ({ item }: Props) => {
+const ItemSearch = ({ item }: Props) => {
     return (
-        <article className={styles.container}>
+        <Link href={`/items/${item.id}`} className={styles.container}>
             <Image className={styles.image} src={item.thumbnail} alt={item.title} width={720} height={720} />
             <section className={styles.information}>
                 <p className={styles.price}>
-                    ${item.price}
+                    ${itemHelpers.formatPrice(item.price)}
                     {
                         item.shipping.free_shipping && (
                             <Image
@@ -30,8 +32,8 @@ const SearchItem = ({ item }: Props) => {
                     {item.title}
                 </h2>
             </section>
-        </article>
+        </Link>
     )
 }
 
-export default SearchItem
+export default ItemSearch

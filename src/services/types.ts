@@ -17,7 +17,7 @@ interface Shipping {
 export interface Item {
     id: string;
     title: string;
-    price: string;
+    price: number;
     installments: Installments;
     picture: string;
     thumbnail: string
@@ -48,7 +48,7 @@ export interface Description {
 export interface Detail {
     id: string;
     title: string;
-    price: string;
+    price: number;
     picture: string;
     condition: string;
     free_shipping: boolean;

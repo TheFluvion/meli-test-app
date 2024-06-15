@@ -1,11 +1,11 @@
 'use client';
 
-import SearchItem from "@/components/Item/SearchItem";
+import ItemSearch from "@/components/ItemSearch/ItemSearch";
 import useSearchItems from "@/hooks/useSearchItems";
 import styles from "./page.module.scss";
 
 const Items = () => {
-    const { items } = useSearchItems();
+    const { items } = useSearchItems('search')
 
     return (
         <main className={styles.container}>
@@ -17,7 +17,7 @@ const Items = () => {
                     items.map((item, index) => {
                         if (index > 3) return
                         return (
-                            <SearchItem key={item.id} item={item} />
+                            <ItemSearch key={item.id} item={item} />
                         )
                     })
                 }
