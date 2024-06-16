@@ -8,6 +8,7 @@
   padding: 16px 96px;
   //calc full height less header height
   height: calc(100% - 48px);
+  width: 100%;
   background-color: $backgroundColor;
   overflow: hidden auto;
 }
