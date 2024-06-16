@@ -1,9 +1,9 @@
 'use client';
 
-import ItemSearch from "@/components/ItemSearch/ItemSearch";
+import ItemSearch from "@/components/ItemSearch";
 import useSearchItems from "@/hooks/useSearchItems";
 import styles from "./page.module.scss";
-import ItemSearchLoader from "@/components/ItemSearchSkeleton/ItemSearchSkeleton";
+import ItemSearchSkeleton from "@/components/ItemSearchSkeleton";
 
 const Items = () => {
     const { items, loading, categories } = useSearchItems('search')
@@ -27,7 +27,7 @@ const Items = () => {
             <section className={styles.items}>
                 {
                     loading
-                        ? createMockArray(4).map((index) => <ItemSearchLoader key={index} />)
+                        ? createMockArray(4).map((index) => <ItemSearchSkeleton key={index} />)
                         : items?.map((item) => (
                             <ItemSearch key={item.id} item={item} />
                         ))

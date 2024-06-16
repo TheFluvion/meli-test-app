@@ -1,6 +1,6 @@
 'use client';
 import styles from "./Header.module.scss";
-import SearchForm from "../SearchForm/SearchForm";
+import SearchForm from "../SearchForm";
 import { useRouter } from "next/navigation";
 
 const Header = () => {

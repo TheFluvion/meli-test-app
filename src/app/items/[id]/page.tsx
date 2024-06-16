@@ -1,8 +1,8 @@
 'use client';
 import useDetailItem from "@/hooks/useDetailItem";
-import ItemDetail from "@/components/ItemDetail/ItemDetail";
+import ItemDetail from "@/components/ItemDetail";
 import styles from './page.module.scss'
-import ItemDetailLoader from "@/components/ItemDetailSkeleton/ItemDetailSkeleton";
+import ItemDetailSkeleton from "@/components/ItemDetailSkeleton";
 
 const ItemDetailPage = ({ params: { id } }: { params: { id: string } }) => {
     const { item, loading } = useDetailItem(id);
@@ -13,7 +13,7 @@ const ItemDetailPage = ({ params: { id } }: { params: { id: string } }) => {
         <main className={styles.container}>
             {
                 loading
-                    ? <ItemDetailLoader />
+                    ? <ItemDetailSkeleton />
                     : <ItemDetail item={item} />
             }
         </main>
