@@ -22,6 +22,7 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
         }
     });
 
+    // Format the data to be returned
     const formatedData: FormatDetailData = itemDetail.formatResponseDetailData(responseData);
 
     return NextResponse.json({ data: formatedData });

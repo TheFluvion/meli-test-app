@@ -2,6 +2,7 @@ import request from "@/services"
 import { DetailItem, FormatDetailData } from "@/services/types/itemDetail"
 import { useEffect, useState } from "react"
 
+//Hook to get the detail of an item
 const useDetailItem = (id: string) => {
     const [item, setItem] = useState<DetailItem | null>(null)
     const [loading, setLoading] = useState(true)

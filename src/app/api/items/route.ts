@@ -19,6 +19,7 @@ export async function GET(req: NextRequest): Promise<any> {
 
     const data: ResponseData = await response.json();
 
+    // Format the data to be returned
     const formatedData: FormatSearchData = itemSearchHelpers.formatResponseSearchData(data);
 
     return NextResponse.json({ data: formatedData });

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 
 type Param = 'search' | 'query' | 'item' | null
 
+//Hook to get the items from the search
 const useSearchItems = (
     queryParam: Param,
     disabledFetch?: boolean
