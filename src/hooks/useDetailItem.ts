@@ -1,9 +1,9 @@
 import request from "@/services"
-import { DetailItem } from "@/services/types"
+import { DetailItem, FormatDetailData } from "@/services/types/itemDetail"
 import { useEffect, useState } from "react"
 
 const useDetailItem = (id: string) => {
-    const [item, setItem] = useState<DetailItem | null>(null)
+    const [item, setItem] = useState<DetailItem>({} as DetailItem)
 
     useEffect(() => {
         if (!id) return
@@ -12,12 +12,12 @@ const useDetailItem = (id: string) => {
 
     const handleFetchItem = async () => {
         if (!id) return;
-        const { ok, data } = await request<DetailItem>(`items/${id}`)
+        const { ok, data } = await request<FormatDetailData>(`items/${id}`)
 
         if (ok && data) {
-            setItem(data)
+            setItem(data.items)
         } else {
-            setItem(null)
+            alert('Error al obtener el detalle del producto')
         }
     }
 

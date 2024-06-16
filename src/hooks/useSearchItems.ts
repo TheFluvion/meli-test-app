@@ -1,5 +1,5 @@
 import request from "@/services"
-import { FormatData, Item } from "@/services/types"
+import { FormatSearchData, Item } from "@/services/types/itemSearch"
 import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 
@@ -19,7 +19,7 @@ const useSearchItems = (
 
     const handleFetchItems = async () => {
         if (!param) return;
-        const { ok, data } = await request<FormatData>(`items?q=${param}`)
+        const { ok, data } = await request<FormatSearchData>(`items?q=${param}`)
 
         if (ok && data) {
             setItems(data.items)

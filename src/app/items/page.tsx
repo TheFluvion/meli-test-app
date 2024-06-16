@@ -16,8 +16,7 @@ const Items = () => {
                 {
                     items.map((item) => (
                         <ItemSearch key={item.id} item={item} />
-                    )
-                    )
+                    ))
                 }
             </section>
         </main>

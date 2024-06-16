@@ -1,4 +1,5 @@
-import { FormatData, Item, ResponseData } from "@/services/types";
+import itemSearchHelpers from "@/helpers/itemsSearch";
+import { FormatSearchData, ResponseData } from "@/services/types/itemSearch";
 import { NextRequest, NextResponse } from "next/server";
 
 const API_BASE_URL = 'https://api.mercadolibre.com/sites/MLA/search?q=';
@@ -18,48 +19,7 @@ export async function GET(req: NextRequest): Promise<any> {
 
     const data: ResponseData = await response.json();
 
-    const formatedData: FormatData = formatResponseData(data);
+    const formatedData: FormatSearchData = itemSearchHelpers.formatResponseSearchData(data);
 
     return NextResponse.json({ data: formatedData });
-}
-
-const formatResponseData = (responseData: ResponseData): FormatData => {
-    const categories: string[] = []
-
-    responseData.filters.forEach(filter => {
-        if (filter.id === 'category') {
-            filter.values.forEach(value => {
-                value.path_from_root.forEach(category => {
-                    categories.push(category.name)
-                })
-            })
-        }
-    })
-
-    const items: Item[] = responseData.results.map(item => {
-        return {
-            categories,
-            id: item.id,
-            title: item.title,
-            price: {
-                currency: item.currency_id,
-                amount: item.price,
-                decimals: null
-            },
-            picture: item.thumbnail,
-            condition: item.condition,
-            free_shipping: item.shipping.free_shipping,
-        }
-    })
-
-    const FormatedData = {
-        author: {
-            name: null,
-            lastname: null
-        },
-        categories,
-        items
-    }
-
-    return FormatedData
 }

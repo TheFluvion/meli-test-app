@@ -18,6 +18,10 @@
     height: 100%;
 }
 
+.input::placeholder {
+    color: $secondaryFontColor;
+}
+
 .input:focus {
     outline: none;
 }

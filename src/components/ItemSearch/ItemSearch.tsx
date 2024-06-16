@@ -1,8 +1,8 @@
-import { Item } from "@/services/types"
+import { Item } from "@/services/types/itemSearch"
 import Image from "next/image"
 import styles from "./ItemSearch.module.scss"
 import truck from "@/../public/icon-truck.svg";
-import { itemHelpers } from "@/helpers/items";
+import { itemHelpers } from "@/helpers/itemsSearch";
 import Link from "next/link";
 
 interface Props {
