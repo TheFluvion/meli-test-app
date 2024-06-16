@@ -19,13 +19,13 @@ const ItemDetail = ({ item }: Props) => {
                     height={680}
                 />
                 <div className={styles.buyInformation}>
-                    <p className={styles.sold}>
+                    <span >
                         {itemDetailHelpers.getCondition(item.condition)} - {item.sold_quantity} vendidos
-                    </p>
-                    <h2 className={styles.title}>
+                    </span>
+                    <h3>
                         {item.title}
-                    </h2>
-                    <h1 className={styles.price}>
+                    </h3>
+                    <h1>
                         $ {itemSearchHelpers.formatPrice(item.price.amount)}
                     </h1>
                     <a className={styles.button} href={item.permalink}>
@@ -34,10 +34,10 @@ const ItemDetail = ({ item }: Props) => {
                 </div>
             </section>
             <article className={styles.descriptionContainer}>
-                <h2 className={styles.descriptionTitle}>
+                <h2 >
                     Descripción del producto
                 </h2>
-                <p className={styles.description}>
+                <p>
                     {item.description}
                 </p>
             </article>

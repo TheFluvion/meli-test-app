@@ -11,9 +11,9 @@ const Items = () => {
 
     return (
         <main className={styles.container}>
-            <p className={styles.category}>
+            <span className={styles.category}>
                 Electrónica, Audio y Video {'>'} iPod {'>'} Reproductores {'>'} iPod touch
-            </p>
+            </span>
             <section className={styles.items}>
                 {
                     items.map((item) => (

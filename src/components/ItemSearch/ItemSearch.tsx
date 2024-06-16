@@ -14,7 +14,7 @@ const ItemSearch = ({ item }: Props) => {
         <Link href={`/items/${item.id}`} className={styles.container}>
             <Image className={styles.image} src={item.picture} alt={item.title} width={720} height={720} />
             <section className={styles.information}>
-                <p className={styles.price}>
+                <h2 className={styles.price}>
                     ${itemSearchHelpers.formatPrice(item.price.amount)}
                     {
                         item.free_shipping && (
@@ -27,10 +27,10 @@ const ItemSearch = ({ item }: Props) => {
                             />
                         )
                     }
-                </p>
-                <h2 className={styles.title}>
-                    {item.title}
                 </h2>
+                <h3 className={styles.title}>
+                    {item.title}
+                </h3>
             </section>
         </Link>
     )
