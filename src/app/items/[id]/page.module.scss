@@ -1,13 +1,7 @@
 @import "@/styles/variables";
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  height: max-content;
+  height: 100%;
   width: 100%;
-  gap: 16px;
-  padding: 32px;
   background-color: $white;
 }

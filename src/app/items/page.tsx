@@ -3,22 +3,34 @@
 import ItemSearch from "@/components/ItemSearch/ItemSearch";
 import useSearchItems from "@/hooks/useSearchItems";
 import styles from "./page.module.scss";
+import ItemSearchLoader from "@/components/ItemSearchLoader/ItemSearchLoader";
 
 const Items = () => {
-    const { items } = useSearchItems('search')
+    const { items, loading, categories } = useSearchItems('search')
 
-    if (!items.length) return
+    if (!items) return
+
+    const createMockArray = (length: number) => Array.from({ length }, (_, i) => i);
 
     return (
         <main className={styles.container}>
             <span className={styles.category}>
-                Electrónica, Audio y Video {'>'} iPod {'>'} Reproductores {'>'} iPod touch
+                {
+                    categories?.map((category, index) => (
+                        <span key={index}>
+                            {category}
+                            {index < categories.length - 1 && ' > '}
+                        </span>
+                    ))
+                }
             </span>
             <section className={styles.items}>
                 {
-                    items.map((item) => (
-                        <ItemSearch key={item.id} item={item} />
-                    ))
+                    loading
+                        ? createMockArray(4).map((index) => <ItemSearchLoader key={index} />)
+                        : items.map((item) => (
+                            <ItemSearch key={item.id} item={item} />
+                        ))
                 }
             </section>
         </main>

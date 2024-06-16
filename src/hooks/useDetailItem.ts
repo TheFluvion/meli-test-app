@@ -3,7 +3,8 @@ import { DetailItem, FormatDetailData } from "@/services/types/itemDetail"
 import { useEffect, useState } from "react"
 
 const useDetailItem = (id: string) => {
-    const [item, setItem] = useState<DetailItem>({} as DetailItem)
+    const [item, setItem] = useState<DetailItem | null>(null)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         if (!id) return
@@ -12,6 +13,7 @@ const useDetailItem = (id: string) => {
 
     const handleFetchItem = async () => {
         if (!id) return;
+        setLoading(true)
         const { ok, data } = await request<FormatDetailData>(`items/${id}`)
 
         if (ok && data) {
@@ -19,10 +21,12 @@ const useDetailItem = (id: string) => {
         } else {
             alert('Error al obtener el detalle del producto')
         }
+        setLoading(false)
     }
 
     return {
-        item
+        item,
+        loading
     }
 }
 

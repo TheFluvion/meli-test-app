@@ -6,30 +6,37 @@ import { useEffect, useState } from "react"
 type Param = 'search' | 'query' | 'item' | null
 
 const useSearchItems = (
-    queryParam: Param
+    queryParam: Param,
+    disabledFetch?: boolean
 ) => {
     const searchParams = useSearchParams()
-    const param: Param = searchParams.get(queryParam as string) as Param
-    const [items, setItems] = useState<Item[]>([] as Item[])
+    const param: string | null = searchParams.get(queryParam || 'search')
+    const [searchData, setSearchData] = useState<FormatSearchData | null>(null)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        if (!param) return
+        if (disabledFetch) return
         handleFetchItems()
     }, [param])
 
     const handleFetchItems = async () => {
         if (!param) return;
+        setLoading(true)
         const { ok, data } = await request<FormatSearchData>(`items?q=${param}`)
 
         if (ok && data) {
-            setItems(data.items)
+            setSearchData(data)
         } else {
-            setItems([])
+            setSearchData(null)
         }
+        setLoading(false)
     }
 
     return {
-        items
+        items: searchData?.items,
+        categories: searchData?.categories,
+        loading,
+        param
     }
 }
 

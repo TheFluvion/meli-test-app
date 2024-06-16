@@ -17,15 +17,16 @@ const ItemDetail = ({ item }: Props) => {
                     alt={item.title}
                     width={680}
                     height={680}
+                    className={styles.image}
                 />
                 <div className={styles.buyInformation}>
-                    <span >
+                    <span>
                         {itemDetailHelpers.getCondition(item.condition)} - {item.sold_quantity} vendidos
                     </span>
-                    <h3>
+                    <h3 className={styles.text}>
                         {item.title}
                     </h3>
-                    <h1>
+                    <h1 className={styles.text}>
                         $ {itemSearchHelpers.formatPrice(item.price.amount)}
                     </h1>
                     <a className={styles.button} href={item.permalink}>
