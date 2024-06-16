@@ -7,6 +7,8 @@ import styles from "./page.module.scss";
 const Items = () => {
     const { items } = useSearchItems('search')
 
+    if (!items.length) return
+
     return (
         <main className={styles.container}>
             <p className={styles.category}>

@@ -2,7 +2,7 @@ import { Item } from "@/services/types/itemSearch"
 import Image from "next/image"
 import styles from "./ItemSearch.module.scss"
 import truck from "@/../public/icon-truck.svg";
-import { itemHelpers } from "@/helpers/itemsSearch";
+import itemSearchHelpers from "@/helpers/itemsSearch";
 import Link from "next/link";
 
 interface Props {
@@ -15,7 +15,7 @@ const ItemSearch = ({ item }: Props) => {
             <Image className={styles.image} src={item.picture} alt={item.title} width={720} height={720} />
             <section className={styles.information}>
                 <p className={styles.price}>
-                    ${itemHelpers.formatPrice(item.price.amount)}
+                    ${itemSearchHelpers.formatPrice(item.price.amount)}
                     {
                         item.free_shipping && (
                             <Image

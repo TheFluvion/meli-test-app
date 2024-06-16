@@ -24,3 +24,46 @@
   height: 100%;
   width: 100%;
 }
+
+
+.loading {
+  display: flex;
+  gap: 0.7rem;
+  overflow: hidden;
+  width: max-content;
+  height: max-content;
+}
+
+.letter {
+  display: inline-block;
+  transform-origin: 50% 50% -25px;
+  transform-style: preserve-3d;
+  animation: turnLetter 2s infinite;
+  text-transform: uppercase;
+  font: var(--title-font);
+  font-size: 1rem;
+  font-weight: var(--regular);
+  color: linear-gradient(45deg, var(--white), var(--black), var(--white));
+}
+
+@keyframes turnLetter {
+  0% {
+    transform: rotateX(-360deg);
+    color: var(--white);
+  }
+
+  20% {
+    opacity: 0;
+  }
+
+  45% {
+    color: var(--black);
+  }
+
+  70%,
+  100% {
+    transform: rotateX(0);
+    color: var(--white);
+    opacity: 1;
+  }
+}

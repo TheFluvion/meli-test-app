@@ -34,11 +34,11 @@ const ItemDetailPage = ({ params: { id } }: { params: { id: string } }) => {
                     </a>
                 </div>
             </section>
-            <article>
-                <h2>
+            <article className={styles.descriptionContainer}>
+                <h2 className={styles.descriptionTitle}>
                     Descripción del producto
                 </h2>
-                <p>
+                <p className={styles.description}>
                     {item.description}
                 </p>
             </article>

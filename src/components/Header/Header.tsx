@@ -14,7 +14,7 @@ const Header = () => {
                 className={styles.logo}
                 onClick={() => router.push('/')}
             >
-                Logo
+                LogoLibre
             </button>
             <SearchForm />
         </header>
