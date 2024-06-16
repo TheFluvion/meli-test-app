@@ -1,6 +1,6 @@
 import { FormatDetailData, ResponseDescriptionData } from "@/services/types/itemDetail";
 
-const itemDetail = {
+const itemDetailHelpers = {
     formatResponseDetailData: (responseData: ResponseDescriptionData): FormatDetailData => {
         const { ResponseItemData, description } = responseData;
         const { id, title, price, pictures, condition, shipping, currency_id, permalink } = ResponseItemData;
@@ -37,4 +37,4 @@ const itemDetail = {
     }
 }
 
-export default itemDetail;
+export default itemDetailHelpers;
