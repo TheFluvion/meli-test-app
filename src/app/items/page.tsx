@@ -3,12 +3,12 @@
 import ItemSearch from "@/components/ItemSearch/ItemSearch";
 import useSearchItems from "@/hooks/useSearchItems";
 import styles from "./page.module.scss";
-import ItemSearchLoader from "@/components/ItemSearchLoader/ItemSearchLoader";
+import ItemSearchLoader from "@/components/ItemSearchSkeleton/ItemSearchSkeleton";
 
 const Items = () => {
     const { items, loading, categories } = useSearchItems('search')
 
-    if (!items) return
+    if (!items && !loading) return
 
     const createMockArray = (length: number) => Array.from({ length }, (_, i) => i);
 
@@ -28,7 +28,7 @@ const Items = () => {
                 {
                     loading
                         ? createMockArray(4).map((index) => <ItemSearchLoader key={index} />)
-                        : items.map((item) => (
+                        : items?.map((item) => (
                             <ItemSearch key={item.id} item={item} />
                         ))
                 }

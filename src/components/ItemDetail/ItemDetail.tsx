@@ -5,10 +5,13 @@ import Image from "next/image";
 import itemDetailHelpers from "@/helpers/itemDetail";
 
 interface Props {
-    item: DetailItem
+    item: DetailItem | null
 }
 
 const ItemDetail = ({ item }: Props) => {
+
+    if (!item) return null
+
     return (
         <main className={styles.container}>
             <section className={styles.informationContainer}>

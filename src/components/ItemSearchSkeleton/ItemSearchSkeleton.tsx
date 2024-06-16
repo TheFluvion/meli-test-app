@@ -1,13 +1,13 @@
 import React from "react"
 import ContentLoader from "react-content-loader"
-import styles from "./ItemSearchLoader.module.scss"
+import styles from "./ItemSearchSkeleton.module.scss"
 
-const ItemSearchLoader = ({ ...props }) => (
+const ItemSearchSkeleton = ({ ...props }) => (
     <ContentLoader
         speed={1}
-        width={800}
-        height={220}
-        viewBox="0 0 800 220"
+        width={100}
+        height={100}
+        viewBox="100 100"
         backgroundColor="#eeeeee"
         foregroundColor="#000000"
         {...props}
@@ -20,4 +20,4 @@ const ItemSearchLoader = ({ ...props }) => (
     </ContentLoader>
 )
 
-export default ItemSearchLoader
+export default ItemSearchSkeleton

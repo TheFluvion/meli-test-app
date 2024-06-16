@@ -1,8 +1,8 @@
 import React from "react"
 import ContentLoader from "react-content-loader"
-import styles from "./ItemDetailLoader.module.scss"
+import styles from "./ItemDetailSkeleton.module.scss"
 
-const ItemDetailLoader = ({ ...props }) => (
+const ItemDetailSkeleton = ({ ...props }) => (
     <ContentLoader
         speed={1}
         width={100}
@@ -27,4 +27,4 @@ const ItemDetailLoader = ({ ...props }) => (
     </ContentLoader>
 )
 
-export default ItemDetailLoader
+export default ItemDetailSkeleton
