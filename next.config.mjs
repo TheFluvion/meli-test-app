@@ -5,6 +5,9 @@ const nextConfig = {
     images: {
         domains: ['http2.mlstatic.com'],
     },
+    /* experimental: {
+        missingSuspenseWithCSRBailout: false,
+    }, */
 };
 
 export default nextConfig;

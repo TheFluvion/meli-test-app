@@ -4,6 +4,9 @@ import "./globals.scss";
 import Header from "@/components/Header";
 import styles from "./page.module.scss"
 
+//Add suspense to the root layout to use UseSearchParams from next.js
+import { Suspense } from 'react'
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -22,10 +25,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}`}>
-        <Header />
-        <main className={styles.main}>
-          {children}
-        </main>
+        <Suspense>
+          <Header />
+          <main className={styles.main}>
+            {children}
+          </main>
+        </Suspense>
       </body>
     </html>
   );

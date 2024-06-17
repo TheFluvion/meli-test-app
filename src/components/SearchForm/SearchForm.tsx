@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import searchIcon from "@/../public/icon-search.svg";
 import styles from "./SearchForm.module.scss";
