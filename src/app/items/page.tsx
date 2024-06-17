@@ -4,17 +4,20 @@ import ItemSearch from "@/components/ItemSearch";
 import useSearchItems from "@/hooks/useSearchItems";
 import styles from "./page.module.scss";
 import ItemSearchSkeleton from "@/components/ItemSearchSkeleton";
+import NoResultsPoster from "@/components/NoResultsPoster";
+import { useEffect } from "react";
 
 const Items = () => {
     const { items, loading, categories } = useSearchItems('search')
 
-    if (!items && !loading) return
-
     const createMockArray = (length: number) => Array.from({ length }, (_, i) => i);
 
     return (
-        <main className={styles.container}>
-            <span className={styles.category}>
+        <div className={styles.container}>
+            {
+                !items && !loading && <NoResultsPoster />
+            }
+            <section className={styles.category}>
                 {
                     categories?.map((category, index) => (
                         <span key={index}>
@@ -23,7 +26,7 @@ const Items = () => {
                         </span>
                     ))
                 }
-            </span>
+            </section>
             <section className={styles.items}>
                 {
                     loading
@@ -33,7 +36,7 @@ const Items = () => {
                         ))
                 }
             </section>
-        </main>
+        </div>
     );
 }
 

@@ -25,7 +25,7 @@ const useSearchItems = (
         setLoading(true)
         const { ok, data } = await request<FormatSearchData>(`items?q=${param}`)
 
-        if (ok && data) {
+        if (ok && data?.items.length) {
             setSearchData(data)
         } else {
             setSearchData(null)

@@ -10,13 +10,13 @@ const ItemDetailPage = ({ params: { id } }: { params: { id: string } }) => {
     if (!item && !loading) return
 
     return (
-        <main className={styles.container}>
+        <div className={styles.container}>
             {
                 loading
                     ? <ItemDetailSkeleton />
                     : <ItemDetail item={item} />
             }
-        </main>
+        </div>
     );
 }
 

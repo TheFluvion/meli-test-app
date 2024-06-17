@@ -10,7 +10,7 @@ interface Props {
 
 const ItemDetail = ({ item }: Props) => {
 
-    if (!item) return null
+    if (!item) return
 
     return (
         <main className={styles.container}>
@@ -23,13 +23,13 @@ const ItemDetail = ({ item }: Props) => {
                     className={styles.image}
                 />
                 <div className={styles.buyInformation}>
-                    <span>
+                    <span className={styles.quantity}>
                         {itemDetailHelpers.getCondition(item.condition)} - {item.sold_quantity} vendidos
                     </span>
-                    <h3 className={styles.text}>
+                    <h3 className={styles.title}>
                         {item.title}
                     </h3>
-                    <h1 className={styles.text}>
+                    <h1 className={styles.price}>
                         $ {itemSearchHelpers.formatPrice(item.price.amount)}
                     </h1>
                     <a className={styles.button} href={item.permalink}>
@@ -38,10 +38,10 @@ const ItemDetail = ({ item }: Props) => {
                 </div>
             </section>
             <article className={styles.descriptionContainer}>
-                <h2 >
+                <h2 className={styles.descriptionTitle}>
                     Descripción del producto
                 </h2>
-                <p>
+                <p className={styles.description}>
                     {item.description}
                 </p>
             </article>

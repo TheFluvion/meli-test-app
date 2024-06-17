@@ -1,21 +1,24 @@
 'use client';
 import styles from "./Header.module.scss";
 import SearchForm from "../SearchForm";
-import { useRouter } from "next/navigation";
-
+import Link from "next/link";
+import Image from "next/image";
+import hands from '@/../public/icon-hands.svg';
 const Header = () => {
-    const router = useRouter();
 
     return (
         <header
             className={styles.container}
         >
-            <button
-                className={styles.logo}
-                onClick={() => router.push('/')}
-            >
-                LogoLibre
-            </button>
+            <Link href='/'>
+                <Image
+                    src={hands}
+                    alt='logo'
+                    width={100}
+                    height={100}
+                    className={styles.logo}
+                />
+            </Link>
             <SearchForm />
         </header>
     )
