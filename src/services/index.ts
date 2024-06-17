@@ -1,5 +1,4 @@
 import { RequestInit } from 'next/dist/server/web/spec-extension/request';
-/* import { basePath, API_BASE_URL, HTTP_STATUS } from '../services/constants'; */
 
 interface RequestOptions extends RequestInit {
     headers?: {

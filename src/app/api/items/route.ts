@@ -1,4 +1,5 @@
-import { ResponseData } from "@/services/types";
+import itemSearchHelpers from "@/helpers/itemsSearch";
+import { FormatSearchData, ResponseData } from "@/services/types/itemSearch";
 import { NextRequest, NextResponse } from "next/server";
 
 const API_BASE_URL = 'https://api.mercadolibre.com/sites/MLA/search?q=';
@@ -7,7 +8,7 @@ export async function GET(req: NextRequest): Promise<any> {
     const query = req.nextUrl.searchParams;
     const q = query.get('q');
 
-    const url = `${API_BASE_URL}${q}`;
+    const url = `${API_BASE_URL}${q}&limit=4&offset=0`;
 
     const response = await fetch(url, {
         mode: 'cors',
@@ -16,8 +17,10 @@ export async function GET(req: NextRequest): Promise<any> {
     if (response.status !== 200)
         return { data: req.url };
 
-    const { results }: { results: ResponseData } = await response.json();
+    const data: ResponseData = await response.json();
 
-    return NextResponse.json({ data: results });
+    // Format the data to be returned
+    const formatedData: FormatSearchData = itemSearchHelpers.formatResponseSearchData(data);
+
+    return NextResponse.json({ data: formatedData });
 }
-
