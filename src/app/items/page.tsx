@@ -5,7 +5,6 @@ import useSearchItems from "@/hooks/useSearchItems";
 import styles from "./page.module.scss";
 import ItemSearchSkeleton from "@/components/ItemSearchSkeleton";
 import NoResultsPoster from "@/components/NoResultsPoster";
-import { useEffect } from "react";
 
 const Items = () => {
     const { items, loading, categories } = useSearchItems('search')

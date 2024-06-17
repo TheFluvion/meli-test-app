@@ -5,8 +5,8 @@ import styles from "./ItemSearchSkeleton.module.scss"
 const ItemSearchSkeleton = ({ ...props }) => (
     <ContentLoader
         speed={1}
-        width={100}
-        height={100}
+        width='100%'
+        height='212px'
         viewBox="100 100"
         backgroundColor="#eeeeee"
         foregroundColor="#000000"
