@@ -12,7 +12,7 @@ const Header = () => {
         <header
             className={styles.container}
         >
-            <Link href='/'>
+            <Link href='/' className={styles.a}>
                 <Image
                     src={meli}
                     alt='logo'

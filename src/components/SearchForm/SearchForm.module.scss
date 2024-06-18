@@ -1,6 +1,7 @@
 @import "@/styles/variables";
 
 .form {
+    grid-column: 3 / 11;
     display: flex;
     justify-content: center;
     align-items: center;

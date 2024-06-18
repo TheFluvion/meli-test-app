@@ -8,7 +8,7 @@
     height: max-content;
     width: 100%;
     gap: 46px;
-    padding: 32px;
+    padding: $mediumPadding;
     background-color: $white;
 }
 
@@ -19,7 +19,7 @@
     width: 100%;
     min-height: max-content;
     flex-flow: wrap;
-    gap: 32px;
+    gap: $mediumGap;
 }
 
 .buyInformation {
@@ -27,7 +27,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 16px;
+    gap: $smallGap;
     flex: 1;
     max-width: 300px;
     min-width: 195px;
@@ -40,7 +40,7 @@
 
 .title,
 .price {
-    margin-bottom: 16px;
+    margin-bottom: $smallMargin;
     color: $fontColor;
 }
 
@@ -69,7 +69,7 @@
 .button {
     color: $white;
     width: 100%;
-    padding: 16px;
+    padding: $smallPadding;
     background-color: $buttonBackground;
     border: none;
     border-radius: 4px;
@@ -84,7 +84,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 16px;
+    gap: $smallGap;
     width: 100%;
     max-width: 680px;
     height: max-content;

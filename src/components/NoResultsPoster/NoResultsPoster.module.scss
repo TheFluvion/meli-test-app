@@ -8,9 +8,9 @@
     width: 100%;
     height: max-content;
     background-color: $white;
-    padding: 32px 64px;
-    gap: 16px;
-    margin-top: 32px;
+    padding: $mediumPadding $largePadding;
+    gap: $smallGap;
+    margin-top: $mediumMargin;
 }
 
 .title {

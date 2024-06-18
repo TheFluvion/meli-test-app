@@ -24,13 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
-        <Suspense>
-          <Header />
-          <main className={styles.main}>
-            {children}
-          </main>
-        </Suspense>
+      <body className={`${inter.className} ${styles.gridContainer}`}>
+        <Header />
+        <main className={styles.main}>
+          {children}
+        </main>
       </body>
     </html>
   );
