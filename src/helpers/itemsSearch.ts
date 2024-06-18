@@ -1,4 +1,5 @@
 import { FormatSearchData, Item, ResponseData } from "@/services/types/itemSearch"
+import itemDetailHelpers from "./itemDetail"
 
 const itemSearchHelpers = {
     formatPrice: (price: number) => price.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, "."),
@@ -23,7 +24,7 @@ const itemSearchHelpers = {
                 price: {
                     currency: item.currency_id,
                     amount: item.price,
-                    decimals: null
+                    decimals: itemDetailHelpers.getDecimals(item.price)
                 },
                 picture: item.thumbnail,
                 condition: item.condition,

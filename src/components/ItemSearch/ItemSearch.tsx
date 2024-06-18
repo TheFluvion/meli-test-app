@@ -15,7 +15,7 @@ const ItemSearch = ({ item }: Props) => {
             <Image className={styles.image} src={item.picture} alt={item.title} width={720} height={720} />
             <section className={styles.information}>
                 <h2 className={styles.price}>
-                    ${itemSearchHelpers.formatPrice(item.price.amount)}
+                    $ {itemSearchHelpers.formatPrice(item.price.amount)}
                     {
                         item.free_shipping && (
                             <Image

@@ -8,8 +8,9 @@
     max-width: 680px;
     height: 100%;
     background-color: $mainColor;
-    gap: 24px;
     background-color: $white;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .input {
@@ -17,7 +18,7 @@
     border: none;
     padding-left: 7px;
     height: 100%;
-    border-radius: 4px;
+    color: $fontColor;
 }
 
 .input::placeholder {

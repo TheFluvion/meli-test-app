@@ -31,6 +31,13 @@ const ItemDetail = ({ item }: Props) => {
                     </h3>
                     <h1 className={styles.price}>
                         $ {itemSearchHelpers.formatPrice(item.price.amount)}
+                        <span className={styles.decimal}>
+                            {
+                                item?.price?.decimals < 10
+                                    ? `0${item.price.decimals}`
+                                    : item.price.decimals
+                            }
+                        </span>
                     </h1>
                     <a className={styles.button} href={item.permalink}>
                         Comprar

@@ -4,7 +4,7 @@ import Image from "next/image";
 import searchIcon from "@/../public/icon-search.svg";
 import styles from "./SearchForm.module.scss";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useSearchItems from "@/hooks/useSearchItems";
 
 const SearchForm = () => {
@@ -14,6 +14,7 @@ const SearchForm = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (!querySearch) return;
         router.push(`/items?search=${querySearch}`);
     }
 

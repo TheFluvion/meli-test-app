@@ -10,7 +10,7 @@ export interface Shipping {
 export interface Price {
     currency: string;
     amount: number;
-    decimals: number | null;
+    decimals: number;
 }
 
 export interface Filters {

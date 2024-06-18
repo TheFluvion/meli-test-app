@@ -17,7 +17,7 @@ const itemDetailHelpers = {
             price: {
                 currency: currency_id,
                 amount: price,
-                decimals: null
+                decimals: itemDetailHelpers.getDecimals(price)
             },
             picture: pictures[0].url,
             condition,
@@ -34,6 +34,23 @@ const itemDetailHelpers = {
     },
     getCondition: (condition: string) => {
         return condition === 'new' ? 'Nuevo' : 'Usado';
+    },
+    getDecimals: (price: number) => {
+        // Convert the number to a string
+        const numberString = price.toString();
+
+        // Find the position of the decimal point
+        const decimalPointIndex = numberString.indexOf('.');
+
+        // If there is no decimal point, return 0
+        if (decimalPointIndex === -1) {
+            return 0;
+        }
+
+        // Extract and return the decimal part
+        const decimalPart = numberString.substring(decimalPointIndex + 1);
+
+        return parseFloat(decimalPart);
     }
 }
 

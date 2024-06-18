@@ -4,6 +4,8 @@ import SearchForm from "../SearchForm";
 import Link from "next/link";
 import Image from "next/image";
 import hands from '@/../public/icon-hands.svg';
+import meli from '@/../public/meli.png';
+
 const Header = () => {
 
     return (
@@ -12,7 +14,7 @@ const Header = () => {
         >
             <Link href='/'>
                 <Image
-                    src={hands}
+                    src={meli}
                     alt='logo'
                     width={100}
                     height={100}
