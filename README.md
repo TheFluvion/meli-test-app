@@ -50,7 +50,7 @@ Open [http://localhost:3000](http://localhost:3000)
 - [`public`](public): Contains static files such as images, fonts, etc.
 - [`styles`](src/styles/_variables.scss): Contains variable SCSS file for styling the application.
 - [`components`](src/components/): Contains reusable React components.
-- [`pages`](src/app/): Contains Next.js pages that define the routes of the application.
+- [`app`](src/app/): Contains Next.js pages that define the routes of the application.
 - [`utils`](src/helpers/): Contains utility functions used throughout the application.
 - [`hook`](src/hooks/): Contains hooks used throughout the application.
 
