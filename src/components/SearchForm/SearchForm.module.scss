@@ -1,12 +1,11 @@
 @import "@/styles/variables";
 
 .form {
-    grid-column: 3 / 11;
+    grid-column: 3 / 12;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 680px;
     height: 100%;
     background-color: $mainColor;
     background-color: $white;

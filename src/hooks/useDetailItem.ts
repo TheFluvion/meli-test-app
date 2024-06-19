@@ -1,4 +1,5 @@
 import request from "@/services"
+import DetailServices from "@/services/DetailServices"
 import { DetailItem, FormatDetailData } from "@/services/types/itemDetail"
 import { useEffect, useState } from "react"
 
@@ -15,7 +16,7 @@ const useDetailItem = (id: string) => {
     const handleFetchItem = async () => {
         if (!id) return;
         setLoading(true)
-        const { ok, data } = await request<FormatDetailData>(`items/${id}`)
+        const { ok, data } = await DetailServices.getDetail(id)
 
         if (ok && data) {
             setItem(data.items)

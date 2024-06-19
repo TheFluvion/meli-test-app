@@ -1,4 +1,5 @@
 import { RequestInit } from 'next/dist/server/web/spec-extension/request';
+import { HTTP_STATUS } from './constants';
 
 interface RequestOptions extends RequestInit {
     headers?: {
@@ -13,18 +14,6 @@ export interface RequestResult<T> {
     data: T | null;
     status: number;
 }
-
-export const HTTP_STATUS = {
-    ok: 200,
-    created: 201,
-    found: 302,
-    badRequest: 400,
-    notFound: 404,
-    methodNotAllowed: 405,
-    timeout: 408,
-    conflict: 409,
-    internalServerError: 500,
-};
 
 const request = async <T>(
     url: string,

@@ -5,9 +5,10 @@ import useSearchItems from "@/hooks/useSearchItems";
 import styles from "./page.module.scss";
 import ItemSearchSkeleton from "@/components/ItemSearchSkeleton";
 import NoResultsPoster from "@/components/NoResultsPoster";
+import { Params } from "@/services/constants";
 
 const Items = () => {
-    const { items, loading, categories } = useSearchItems('search')
+    const { items, loading, categories } = useSearchItems(Params.search)
 
     const createMockArray = (length: number) => Array.from({ length }, (_, i) => i);
 

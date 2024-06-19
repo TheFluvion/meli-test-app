@@ -1,9 +1,10 @@
 import request from "@/services"
+import SearchServices from "@/services/SearchServices"
 import { FormatSearchData, Item } from "@/services/types/itemSearch"
 import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 
-type Param = 'search' | 'query' | 'item' | null
+export type Param = 'search' | 'query' | 'item'
 
 //Hook to get the items from the search
 const useSearchItems = (
@@ -23,7 +24,7 @@ const useSearchItems = (
     const handleFetchItems = async () => {
         if (!param) return;
         setLoading(true)
-        const { ok, data } = await request<FormatSearchData>(`items?q=${param}`)
+        const { ok, data } = await SearchServices.getItems(param)
 
         if (ok && data?.items.length) {
             setSearchData(data)
