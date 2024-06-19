@@ -5,8 +5,8 @@ import styles from "./ItemDetailSkeleton.module.scss"
 const ItemDetailSkeleton = ({ ...props }) => (
     <ContentLoader
         speed={1}
-        width={100}
-        height={100}
+        width='100%'
+        height='720px'
         viewBox="100 100"
         backgroundColor="#eeeeee"
         foregroundColor="#000000"

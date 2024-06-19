@@ -12,10 +12,7 @@ const Items = () => {
     const createMockArray = (length: number) => Array.from({ length }, (_, i) => i);
 
     return (
-        <div className={styles.container}>
-            {
-                !items && !loading && <NoResultsPoster />
-            }
+        <>
             <section className={styles.category}>
                 {
                     categories?.map((category, index) => (
@@ -26,16 +23,21 @@ const Items = () => {
                     ))
                 }
             </section>
-            <section className={styles.items}>
+            <div className={styles.container}>
                 {
-                    loading
-                        ? createMockArray(4).map((index) => <ItemSearchSkeleton key={index} />)
-                        : items?.map((item) => (
-                            <ItemSearch key={item.id} item={item} />
-                        ))
+                    !items && !loading && <NoResultsPoster />
                 }
-            </section>
-        </div>
+                <section className={styles.items}>
+                    {
+                        loading
+                            ? createMockArray(4).map((index) => <ItemSearchSkeleton key={index} />)
+                            : items?.map((item) => (
+                                <ItemSearch key={item.id} item={item} />
+                            ))
+                    }
+                </section>
+            </div>
+        </>
     );
 }
 

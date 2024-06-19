@@ -22,7 +22,7 @@ const ItemDetail = ({ item }: Props) => {
                     height={680}
                     className={styles.image}
                 />
-                <div className={styles.buyInformation}>
+                <div className={styles.productInfo}>
                     <span className={styles.quantity}>
                         {itemDetailHelpers.getCondition(item.condition)} - {item.sold_quantity} vendidos
                     </span>
