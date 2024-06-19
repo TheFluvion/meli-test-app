@@ -14,34 +14,36 @@ const ItemDetail = ({ item }: Props) => {
 
     return (
         <main className={styles.container}>
-            <Image
-                src={item.picture}
-                alt={item.title}
-                width={680}
-                height={680}
-                className={styles.image}
-            />
-            <div className={styles.buyInformation}>
-                <span className={styles.quantity}>
-                    {itemDetailHelpers.getCondition(item.condition)} - {item.sold_quantity} vendidos
-                </span>
-                <h3 className={styles.title}>
-                    {item.title}
-                </h3>
-                <h1 className={styles.price}>
-                    $ {itemSearchHelpers.formatPrice(item.price.amount)}
-                    <span className={styles.decimal}>
-                        {
-                            item?.price?.decimals < 10
-                                ? `0${item.price.decimals}`
-                                : item.price.decimals
-                        }
+            <section className={styles.informationContainer}>
+                <Image
+                    src={item.picture}
+                    alt={item.title}
+                    width={680}
+                    height={680}
+                    className={styles.image}
+                />
+                <div className={styles.productInfo}>
+                    <span className={styles.quantity}>
+                        {itemDetailHelpers.getCondition(item.condition)} - {item.sold_quantity} vendidos
                     </span>
-                </h1>
-                <a className={styles.button} href={item.permalink}>
-                    Comprar
-                </a>
-            </div>
+                    <h3 className={styles.title}>
+                        {item.title}
+                    </h3>
+                    <h1 className={styles.price}>
+                        $ {itemSearchHelpers.formatPrice(item.price.amount)}
+                        <span className={styles.decimal}>
+                            {
+                                item?.price?.decimals < 10
+                                    ? `0${item.price.decimals}`
+                                    : item.price.decimals
+                            }
+                        </span>
+                    </h1>
+                    <a className={styles.button} href={item.permalink}>
+                        Comprar
+                    </a>
+                </div>
+            </section>
             <article className={styles.descriptionContainer}>
                 <h2 className={styles.descriptionTitle}>
                     Descripción del producto
