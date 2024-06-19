@@ -28,7 +28,7 @@
     width: 180px;
     height: 180px;
     background-color: $backgroundColor;
-    border-radius: 4px;
+    border-radius: $borderRadius;
     flex-shrink: 0;
     object-fit: contain;
 }
